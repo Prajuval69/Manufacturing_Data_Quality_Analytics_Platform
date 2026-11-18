@@ -1,0 +1,89 @@
+lineage_id,source,transformation,target,description
+dim_customer:0,ERP.customers.csv,Contract-checked CSV ingestion,stg_dim_customer,dim_customer: Contract-checked CSV ingestion
+dim_customer:1,stg_dim_customer,Normalize text/dates/units; repair canonical labels,clean_dim_customer,dim_customer: Normalize text/dates/units; repair canonical labels
+dim_customer:2,clean_dim_customer,"Validate, exclude blocking failures; retain flagged anomalies",dim_customer,"dim_customer: Validate, exclude blocking failures; retain flagged anomalies"
+dim_customer:3,dim_customer,Aggregate trusted facts or document governed fields,metadata_catalog,dim_customer: Aggregate trusted facts or document governed fields
+dim_customer:4,metadata_catalog,Export local reporting snapshot,Power BI CSV,dim_customer: Export local reporting snapshot
+dim_customer:exceptions,clean_dim_customer,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+dim_customer:reference,reference.dim_customer,Canonical labels and identifier membership,clean_dim_customer,Trusted synthetic master reference guides standardization and validation
+dim_product:0,ERP.products.csv,Contract-checked CSV ingestion,stg_dim_product,dim_product: Contract-checked CSV ingestion
+dim_product:1,stg_dim_product,Normalize text/dates/units; repair canonical labels,clean_dim_product,dim_product: Normalize text/dates/units; repair canonical labels
+dim_product:2,clean_dim_product,"Validate, exclude blocking failures; retain flagged anomalies",dim_product,"dim_product: Validate, exclude blocking failures; retain flagged anomalies"
+dim_product:3,dim_product,Aggregate trusted facts or document governed fields,metadata_catalog,dim_product: Aggregate trusted facts or document governed fields
+dim_product:4,metadata_catalog,Export local reporting snapshot,Power BI CSV,dim_product: Export local reporting snapshot
+dim_product:exceptions,clean_dim_product,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+dim_product:reference,reference.dim_product,Canonical labels and identifier membership,clean_dim_product,Trusted synthetic master reference guides standardization and validation
+dim_product:fk:supplier_id,dim_supplier,Validate supplier_id against accepted parent identifiers,dim_product,Invalid parent rows cause dependent facts to be quarantined
+dim_facility:0,MASTER_DATA.facilities.csv,Contract-checked CSV ingestion,stg_dim_facility,dim_facility: Contract-checked CSV ingestion
+dim_facility:1,stg_dim_facility,Normalize text/dates/units; repair canonical labels,clean_dim_facility,dim_facility: Normalize text/dates/units; repair canonical labels
+dim_facility:2,clean_dim_facility,"Validate, exclude blocking failures; retain flagged anomalies",dim_facility,"dim_facility: Validate, exclude blocking failures; retain flagged anomalies"
+dim_facility:3,dim_facility,Aggregate trusted facts or document governed fields,facility_performance,dim_facility: Aggregate trusted facts or document governed fields
+dim_facility:4,facility_performance,Export local reporting snapshot,Power BI CSV,dim_facility: Export local reporting snapshot
+dim_facility:exceptions,clean_dim_facility,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+dim_facility:reference,reference.dim_facility,Canonical labels and identifier membership,clean_dim_facility,Trusted synthetic master reference guides standardization and validation
+dim_supplier:0,MASTER_DATA.suppliers.csv,Contract-checked CSV ingestion,stg_dim_supplier,dim_supplier: Contract-checked CSV ingestion
+dim_supplier:1,stg_dim_supplier,Normalize text/dates/units; repair canonical labels,clean_dim_supplier,dim_supplier: Normalize text/dates/units; repair canonical labels
+dim_supplier:2,clean_dim_supplier,"Validate, exclude blocking failures; retain flagged anomalies",dim_supplier,"dim_supplier: Validate, exclude blocking failures; retain flagged anomalies"
+dim_supplier:3,dim_supplier,Aggregate trusted facts or document governed fields,metadata_catalog,dim_supplier: Aggregate trusted facts or document governed fields
+dim_supplier:4,metadata_catalog,Export local reporting snapshot,Power BI CSV,dim_supplier: Export local reporting snapshot
+dim_supplier:exceptions,clean_dim_supplier,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+dim_supplier:reference,reference.dim_supplier,Canonical labels and identifier membership,clean_dim_supplier,Trusted synthetic master reference guides standardization and validation
+dim_material:0,MASTER_DATA.materials.csv,Contract-checked CSV ingestion,stg_dim_material,dim_material: Contract-checked CSV ingestion
+dim_material:1,stg_dim_material,Normalize text/dates/units; repair canonical labels,clean_dim_material,dim_material: Normalize text/dates/units; repair canonical labels
+dim_material:2,clean_dim_material,"Validate, exclude blocking failures; retain flagged anomalies",dim_material,"dim_material: Validate, exclude blocking failures; retain flagged anomalies"
+dim_material:3,dim_material,Aggregate trusted facts or document governed fields,metadata_catalog,dim_material: Aggregate trusted facts or document governed fields
+dim_material:4,metadata_catalog,Export local reporting snapshot,Power BI CSV,dim_material: Export local reporting snapshot
+dim_material:exceptions,clean_dim_material,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+dim_material:reference,reference.dim_material,Canonical labels and identifier membership,clean_dim_material,Trusted synthetic master reference guides standardization and validation
+dim_material:fk:supplier_id,dim_supplier,Validate supplier_id against accepted parent identifiers,dim_material,Invalid parent rows cause dependent facts to be quarantined
+dim_warehouse:0,WMS.warehouses.csv,Contract-checked CSV ingestion,stg_dim_warehouse,dim_warehouse: Contract-checked CSV ingestion
+dim_warehouse:1,stg_dim_warehouse,Normalize text/dates/units; repair canonical labels,clean_dim_warehouse,dim_warehouse: Normalize text/dates/units; repair canonical labels
+dim_warehouse:2,clean_dim_warehouse,"Validate, exclude blocking failures; retain flagged anomalies",dim_warehouse,"dim_warehouse: Validate, exclude blocking failures; retain flagged anomalies"
+dim_warehouse:3,dim_warehouse,Aggregate trusted facts or document governed fields,metadata_catalog,dim_warehouse: Aggregate trusted facts or document governed fields
+dim_warehouse:4,metadata_catalog,Export local reporting snapshot,Power BI CSV,dim_warehouse: Export local reporting snapshot
+dim_warehouse:exceptions,clean_dim_warehouse,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+dim_warehouse:reference,reference.dim_warehouse,Canonical labels and identifier membership,clean_dim_warehouse,Trusted synthetic master reference guides standardization and validation
+dim_warehouse:fk:facility_id,dim_facility,Validate facility_id against accepted parent identifiers,dim_warehouse,Invalid parent rows cause dependent facts to be quarantined
+fact_sales_order:0,ERP.sales_orders.csv,Contract-checked CSV ingestion,stg_fact_sales_order,fact_sales_order: Contract-checked CSV ingestion
+fact_sales_order:1,stg_fact_sales_order,Normalize text/dates/units; repair canonical labels,clean_fact_sales_order,fact_sales_order: Normalize text/dates/units; repair canonical labels
+fact_sales_order:2,clean_fact_sales_order,"Validate, exclude blocking failures; retain flagged anomalies",fact_sales_order,"fact_sales_order: Validate, exclude blocking failures; retain flagged anomalies"
+fact_sales_order:3,fact_sales_order,Aggregate trusted facts or document governed fields,kpi_monthly,fact_sales_order: Aggregate trusted facts or document governed fields
+fact_sales_order:4,kpi_monthly,Export local reporting snapshot,Power BI CSV,fact_sales_order: Export local reporting snapshot
+fact_sales_order:exceptions,clean_fact_sales_order,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+fact_sales_order:fk:customer_id,dim_customer,Validate customer_id against accepted parent identifiers,fact_sales_order,Invalid parent rows cause dependent facts to be quarantined
+fact_sales_order:fk:product_id,dim_product,Validate product_id against accepted parent identifiers,fact_sales_order,Invalid parent rows cause dependent facts to be quarantined
+fact_sales_order:fk:facility_id,dim_facility,Validate facility_id against accepted parent identifiers,fact_sales_order,Invalid parent rows cause dependent facts to be quarantined
+fact_sales_order_line:0,ERP.order_lines.csv,Contract-checked CSV ingestion,stg_fact_sales_order_line,fact_sales_order_line: Contract-checked CSV ingestion
+fact_sales_order_line:1,stg_fact_sales_order_line,Normalize text/dates/units; repair canonical labels,clean_fact_sales_order_line,fact_sales_order_line: Normalize text/dates/units; repair canonical labels
+fact_sales_order_line:2,clean_fact_sales_order_line,"Validate, exclude blocking failures; retain flagged anomalies",fact_sales_order_line,"fact_sales_order_line: Validate, exclude blocking failures; retain flagged anomalies"
+fact_sales_order_line:3,fact_sales_order_line,Aggregate trusted facts or document governed fields,kpi_monthly,fact_sales_order_line: Aggregate trusted facts or document governed fields
+fact_sales_order_line:4,kpi_monthly,Export local reporting snapshot,Power BI CSV,fact_sales_order_line: Export local reporting snapshot
+fact_sales_order_line:exceptions,clean_fact_sales_order_line,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+fact_sales_order_line:fk:order_id,fact_sales_order,Validate order_id against accepted parent identifiers,fact_sales_order_line,Invalid parent rows cause dependent facts to be quarantined
+fact_sales_order_line:fk:product_id,dim_product,Validate product_id against accepted parent identifiers,fact_sales_order_line,Invalid parent rows cause dependent facts to be quarantined
+fact_production:0,MES.production.csv,Contract-checked CSV ingestion,stg_fact_production,fact_production: Contract-checked CSV ingestion
+fact_production:1,stg_fact_production,Normalize text/dates/units; repair canonical labels,clean_fact_production,fact_production: Normalize text/dates/units; repair canonical labels
+fact_production:2,clean_fact_production,"Validate, exclude blocking failures; retain flagged anomalies",fact_production,"fact_production: Validate, exclude blocking failures; retain flagged anomalies"
+fact_production:3,fact_production,Aggregate trusted facts or document governed fields,kpi_monthly,fact_production: Aggregate trusted facts or document governed fields
+fact_production:4,kpi_monthly,Export local reporting snapshot,Power BI CSV,fact_production: Export local reporting snapshot
+fact_production:exceptions,clean_fact_production,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+fact_production:fk:product_id,dim_product,Validate product_id against accepted parent identifiers,fact_production,Invalid parent rows cause dependent facts to be quarantined
+fact_production:fk:facility_id,dim_facility,Validate facility_id against accepted parent identifiers,fact_production,Invalid parent rows cause dependent facts to be quarantined
+fact_production:fk:material_id,dim_material,Validate material_id against accepted parent identifiers,fact_production,Invalid parent rows cause dependent facts to be quarantined
+fact_inventory:0,WMS.inventory.csv,Contract-checked CSV ingestion,stg_fact_inventory,fact_inventory: Contract-checked CSV ingestion
+fact_inventory:1,stg_fact_inventory,Normalize text/dates/units; repair canonical labels,clean_fact_inventory,fact_inventory: Normalize text/dates/units; repair canonical labels
+fact_inventory:2,clean_fact_inventory,"Validate, exclude blocking failures; retain flagged anomalies",fact_inventory,"fact_inventory: Validate, exclude blocking failures; retain flagged anomalies"
+fact_inventory:3,fact_inventory,Aggregate trusted facts or document governed fields,kpi_monthly,fact_inventory: Aggregate trusted facts or document governed fields
+fact_inventory:4,kpi_monthly,Export local reporting snapshot,Power BI CSV,fact_inventory: Export local reporting snapshot
+fact_inventory:exceptions,clean_fact_inventory,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+fact_inventory:fk:product_id,dim_product,Validate product_id against accepted parent identifiers,fact_inventory,Invalid parent rows cause dependent facts to be quarantined
+fact_inventory:fk:facility_id,dim_facility,Validate facility_id against accepted parent identifiers,fact_inventory,Invalid parent rows cause dependent facts to be quarantined
+fact_inventory:fk:warehouse_id,dim_warehouse,Validate warehouse_id against accepted parent identifiers,fact_inventory,Invalid parent rows cause dependent facts to be quarantined
+fact_shipment:0,LOGISTICS.shipments.csv,Contract-checked CSV ingestion,stg_fact_shipment,fact_shipment: Contract-checked CSV ingestion
+fact_shipment:1,stg_fact_shipment,Normalize text/dates/units; repair canonical labels,clean_fact_shipment,fact_shipment: Normalize text/dates/units; repair canonical labels
+fact_shipment:2,clean_fact_shipment,"Validate, exclude blocking failures; retain flagged anomalies",fact_shipment,"fact_shipment: Validate, exclude blocking failures; retain flagged anomalies"
+fact_shipment:3,fact_shipment,Aggregate trusted facts or document governed fields,kpi_monthly,fact_shipment: Aggregate trusted facts or document governed fields
+fact_shipment:4,kpi_monthly,Export local reporting snapshot,Power BI CSV,fact_shipment: Export local reporting snapshot
+fact_shipment:exceptions,clean_fact_shipment,Persist one exception per failed rule and source occurrence,dq_exception,Incoming canonical/duplicate checks retain raw values; other checks use cleaned values
+fact_shipment:fk:order_id,fact_sales_order,Validate order_id against accepted parent identifiers,fact_shipment,Invalid parent rows cause dependent facts to be quarantined
+fact_shipment:fk:facility_id,dim_facility,Validate facility_id against accepted parent identifiers,fact_shipment,Invalid parent rows cause dependent facts to be quarantined

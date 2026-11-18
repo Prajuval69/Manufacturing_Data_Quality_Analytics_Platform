@@ -1,0 +1,160 @@
+rule_id,rule_name,description,dimension,severity,source_system,table_name,column_name,validation_logic,phase,reject,active,parameters
+dim_customer.customer_id.not_null,customer_id not null,dim_customer.customer_id: not_null; {},completeness,High,ERP,dim_customer,customer_id,not_null,cleaned,1,1,{}
+dim_customer.customer_name.not_null,customer_name not null,dim_customer.customer_name: not_null; {},completeness,High,ERP,dim_customer,customer_name,not_null,cleaned,1,1,{}
+dim_customer.country.not_null,country not null,dim_customer.country: not_null; {},completeness,High,ERP,dim_customer,country,not_null,cleaned,1,1,{}
+dim_customer.customer_id.unique,customer_id unique,dim_customer.customer_id: unique; {},uniqueness,High,ERP,dim_customer,customer_id,unique,raw,1,1,{}
+dim_customer.customer_id.pattern,customer_id pattern,dim_customer.customer_id: pattern; {'pattern': 'C[0-9]{5}'},validity,High,ERP,dim_customer,customer_id,pattern,cleaned,1,1,"{""pattern"": ""C[0-9]{5}""}"
+dim_customer.customer_id.reference,customer_id reference,"dim_customer.customer_id: reference; {'target': 'dim_customer', 'reference': True}",referential_integrity,Critical,ERP,dim_customer,customer_id,reference,cleaned,1,1,"{""reference"": true, ""target"": ""dim_customer""}"
+dim_customer.country.allowed,country allowed,"dim_customer.country: allowed; {'values': ['IN', 'US', 'DE', 'SG', 'AE']}",validity,High,ERP,dim_customer,country,allowed,cleaned,1,1,"{""values"": [""IN"", ""US"", ""DE"", ""SG"", ""AE""]}"
+dim_customer.customer_name.canonical_label,customer_name canonical label,dim_customer.customer_name: canonical_label; {'key': 'customer_id'},consistency,Medium,ERP,dim_customer,customer_name,canonical_label,raw,0,1,"{""key"": ""customer_id""}"
+dim_product.product_id.not_null,product_id not null,dim_product.product_id: not_null; {},completeness,High,ERP,dim_product,product_id,not_null,cleaned,1,1,{}
+dim_product.product_description.not_null,product_description not null,dim_product.product_description: not_null; {},completeness,High,ERP,dim_product,product_description,not_null,cleaned,1,1,{}
+dim_product.category.not_null,category not null,dim_product.category: not_null; {},completeness,High,ERP,dim_product,category,not_null,cleaned,1,1,{}
+dim_product.uom.not_null,uom not null,dim_product.uom: not_null; {},completeness,High,ERP,dim_product,uom,not_null,cleaned,1,1,{}
+dim_product.supplier_id.not_null,supplier_id not null,dim_product.supplier_id: not_null; {},completeness,High,ERP,dim_product,supplier_id,not_null,cleaned,1,1,{}
+dim_product.product_id.unique,product_id unique,dim_product.product_id: unique; {},uniqueness,High,ERP,dim_product,product_id,unique,raw,1,1,{}
+dim_product.product_id.pattern,product_id pattern,dim_product.product_id: pattern; {'pattern': 'P[0-9]{5}'},validity,High,ERP,dim_product,product_id,pattern,cleaned,1,1,"{""pattern"": ""P[0-9]{5}""}"
+dim_product.product_id.reference,product_id reference,"dim_product.product_id: reference; {'target': 'dim_product', 'reference': True}",referential_integrity,Critical,ERP,dim_product,product_id,reference,cleaned,1,1,"{""reference"": true, ""target"": ""dim_product""}"
+dim_product.supplier_id.reference,supplier_id reference,dim_product.supplier_id: reference; {'target': 'dim_supplier'},referential_integrity,Critical,ERP,dim_product,supplier_id,reference,cleaned,1,1,"{""target"": ""dim_supplier""}"
+dim_product.uom.allowed,uom allowed,"dim_product.uom: allowed; {'values': ['EA', 'KG', 'L']}",validity,Medium,ERP,dim_product,uom,allowed,cleaned,1,1,"{""values"": [""EA"", ""KG"", ""L""]}"
+dim_product.uom.canonical_unit,uom canonical unit,dim_product.uom: canonical_unit; {},consistency,Medium,ERP,dim_product,uom,canonical_unit,raw,0,1,{}
+dim_product.category.allowed,category allowed,"dim_product.category: allowed; {'values': ['FIBER PACKAGING', 'METAL CONTAINERS', 'POLYMER PACKAGING', 'INDUSTRIAL DRUMS', 'INTERMEDIATE BULK CONTAINERS']}",validity,High,ERP,dim_product,category,allowed,cleaned,1,1,"{""values"": [""FIBER PACKAGING"", ""METAL CONTAINERS"", ""POLYMER PACKAGING"", ""INDUSTRIAL DRUMS"", ""INTERMEDIATE BULK CONTAINERS""]}"
+dim_product.product_description.canonical_label,product_description canonical label,dim_product.product_description: canonical_label; {'key': 'product_id'},consistency,Medium,ERP,dim_product,product_description,canonical_label,raw,0,1,"{""key"": ""product_id""}"
+dim_facility.facility_id.not_null,facility_id not null,dim_facility.facility_id: not_null; {},completeness,High,MASTER_DATA,dim_facility,facility_id,not_null,cleaned,1,1,{}
+dim_facility.facility_name.not_null,facility_name not null,dim_facility.facility_name: not_null; {},completeness,High,MASTER_DATA,dim_facility,facility_name,not_null,cleaned,1,1,{}
+dim_facility.city.not_null,city not null,dim_facility.city: not_null; {},completeness,High,MASTER_DATA,dim_facility,city,not_null,cleaned,1,1,{}
+dim_facility.facility_id.unique,facility_id unique,dim_facility.facility_id: unique; {},uniqueness,High,MASTER_DATA,dim_facility,facility_id,unique,raw,1,1,{}
+dim_facility.facility_id.pattern,facility_id pattern,dim_facility.facility_id: pattern; {'pattern': 'F[0-9]{3}'},validity,High,MASTER_DATA,dim_facility,facility_id,pattern,cleaned,1,1,"{""pattern"": ""F[0-9]{3}""}"
+dim_facility.facility_id.reference,facility_id reference,"dim_facility.facility_id: reference; {'target': 'dim_facility', 'reference': True}",referential_integrity,Critical,MASTER_DATA,dim_facility,facility_id,reference,cleaned,1,1,"{""reference"": true, ""target"": ""dim_facility""}"
+dim_facility.facility_name.canonical_label,facility_name canonical label,dim_facility.facility_name: canonical_label; {'key': 'facility_id'},consistency,Medium,MASTER_DATA,dim_facility,facility_name,canonical_label,raw,0,1,"{""key"": ""facility_id""}"
+dim_supplier.supplier_id.not_null,supplier_id not null,dim_supplier.supplier_id: not_null; {},completeness,High,MASTER_DATA,dim_supplier,supplier_id,not_null,cleaned,1,1,{}
+dim_supplier.supplier_name.not_null,supplier_name not null,dim_supplier.supplier_name: not_null; {},completeness,High,MASTER_DATA,dim_supplier,supplier_name,not_null,cleaned,1,1,{}
+dim_supplier.country.not_null,country not null,dim_supplier.country: not_null; {},completeness,High,MASTER_DATA,dim_supplier,country,not_null,cleaned,1,1,{}
+dim_supplier.supplier_id.unique,supplier_id unique,dim_supplier.supplier_id: unique; {},uniqueness,High,MASTER_DATA,dim_supplier,supplier_id,unique,raw,1,1,{}
+dim_supplier.supplier_id.pattern,supplier_id pattern,dim_supplier.supplier_id: pattern; {'pattern': 'S[0-9]{5}'},validity,High,MASTER_DATA,dim_supplier,supplier_id,pattern,cleaned,1,1,"{""pattern"": ""S[0-9]{5}""}"
+dim_supplier.supplier_id.reference,supplier_id reference,"dim_supplier.supplier_id: reference; {'target': 'dim_supplier', 'reference': True}",referential_integrity,Critical,MASTER_DATA,dim_supplier,supplier_id,reference,cleaned,1,1,"{""reference"": true, ""target"": ""dim_supplier""}"
+dim_supplier.country.allowed,country allowed,"dim_supplier.country: allowed; {'values': ['IN', 'US', 'DE', 'SG', 'AE']}",validity,High,MASTER_DATA,dim_supplier,country,allowed,cleaned,1,1,"{""values"": [""IN"", ""US"", ""DE"", ""SG"", ""AE""]}"
+dim_supplier.supplier_name.canonical_label,supplier_name canonical label,dim_supplier.supplier_name: canonical_label; {'key': 'supplier_id'},consistency,Medium,MASTER_DATA,dim_supplier,supplier_name,canonical_label,raw,0,1,"{""key"": ""supplier_id""}"
+dim_material.material_id.not_null,material_id not null,dim_material.material_id: not_null; {},completeness,High,MASTER_DATA,dim_material,material_id,not_null,cleaned,1,1,{}
+dim_material.material_name.not_null,material_name not null,dim_material.material_name: not_null; {},completeness,High,MASTER_DATA,dim_material,material_name,not_null,cleaned,1,1,{}
+dim_material.supplier_id.not_null,supplier_id not null,dim_material.supplier_id: not_null; {},completeness,High,MASTER_DATA,dim_material,supplier_id,not_null,cleaned,1,1,{}
+dim_material.uom.not_null,uom not null,dim_material.uom: not_null; {},completeness,High,MASTER_DATA,dim_material,uom,not_null,cleaned,1,1,{}
+dim_material.material_id.unique,material_id unique,dim_material.material_id: unique; {},uniqueness,High,MASTER_DATA,dim_material,material_id,unique,raw,1,1,{}
+dim_material.material_id.pattern,material_id pattern,dim_material.material_id: pattern; {'pattern': 'M[0-9]{5}'},validity,High,MASTER_DATA,dim_material,material_id,pattern,cleaned,1,1,"{""pattern"": ""M[0-9]{5}""}"
+dim_material.material_id.reference,material_id reference,"dim_material.material_id: reference; {'target': 'dim_material', 'reference': True}",referential_integrity,Critical,MASTER_DATA,dim_material,material_id,reference,cleaned,1,1,"{""reference"": true, ""target"": ""dim_material""}"
+dim_material.supplier_id.reference,supplier_id reference,dim_material.supplier_id: reference; {'target': 'dim_supplier'},referential_integrity,Critical,MASTER_DATA,dim_material,supplier_id,reference,cleaned,1,1,"{""target"": ""dim_supplier""}"
+dim_material.uom.allowed,uom allowed,"dim_material.uom: allowed; {'values': ['EA', 'KG', 'L']}",validity,Medium,MASTER_DATA,dim_material,uom,allowed,cleaned,1,1,"{""values"": [""EA"", ""KG"", ""L""]}"
+dim_material.uom.canonical_unit,uom canonical unit,dim_material.uom: canonical_unit; {},consistency,Medium,MASTER_DATA,dim_material,uom,canonical_unit,raw,0,1,{}
+dim_material.material_name.canonical_label,material_name canonical label,dim_material.material_name: canonical_label; {'key': 'material_id'},consistency,Medium,MASTER_DATA,dim_material,material_name,canonical_label,raw,0,1,"{""key"": ""material_id""}"
+dim_warehouse.warehouse_id.not_null,warehouse_id not null,dim_warehouse.warehouse_id: not_null; {},completeness,High,WMS,dim_warehouse,warehouse_id,not_null,cleaned,1,1,{}
+dim_warehouse.facility_id.not_null,facility_id not null,dim_warehouse.facility_id: not_null; {},completeness,High,WMS,dim_warehouse,facility_id,not_null,cleaned,1,1,{}
+dim_warehouse.warehouse_name.not_null,warehouse_name not null,dim_warehouse.warehouse_name: not_null; {},completeness,High,WMS,dim_warehouse,warehouse_name,not_null,cleaned,1,1,{}
+dim_warehouse.warehouse_id.unique,warehouse_id unique,dim_warehouse.warehouse_id: unique; {},uniqueness,High,WMS,dim_warehouse,warehouse_id,unique,raw,1,1,{}
+dim_warehouse.warehouse_id.pattern,warehouse_id pattern,dim_warehouse.warehouse_id: pattern; {'pattern': 'W[0-9]{3}'},validity,High,WMS,dim_warehouse,warehouse_id,pattern,cleaned,1,1,"{""pattern"": ""W[0-9]{3}""}"
+dim_warehouse.warehouse_id.reference,warehouse_id reference,"dim_warehouse.warehouse_id: reference; {'target': 'dim_warehouse', 'reference': True}",referential_integrity,Critical,WMS,dim_warehouse,warehouse_id,reference,cleaned,1,1,"{""reference"": true, ""target"": ""dim_warehouse""}"
+dim_warehouse.facility_id.reference,facility_id reference,dim_warehouse.facility_id: reference; {'target': 'dim_facility'},referential_integrity,Critical,WMS,dim_warehouse,facility_id,reference,cleaned,1,1,"{""target"": ""dim_facility""}"
+dim_warehouse.warehouse_name.canonical_label,warehouse_name canonical label,dim_warehouse.warehouse_name: canonical_label; {'key': 'warehouse_id'},consistency,Medium,WMS,dim_warehouse,warehouse_name,canonical_label,raw,0,1,"{""key"": ""warehouse_id""}"
+fact_sales_order.order_id.not_null,order_id not null,fact_sales_order.order_id: not_null; {},completeness,High,ERP,fact_sales_order,order_id,not_null,cleaned,1,1,{}
+fact_sales_order.customer_id.not_null,customer_id not null,fact_sales_order.customer_id: not_null; {},completeness,High,ERP,fact_sales_order,customer_id,not_null,cleaned,1,1,{}
+fact_sales_order.product_id.not_null,product_id not null,fact_sales_order.product_id: not_null; {},completeness,High,ERP,fact_sales_order,product_id,not_null,cleaned,1,1,{}
+fact_sales_order.facility_id.not_null,facility_id not null,fact_sales_order.facility_id: not_null; {},completeness,High,ERP,fact_sales_order,facility_id,not_null,cleaned,1,1,{}
+fact_sales_order.order_date.not_null,order_date not null,fact_sales_order.order_date: not_null; {},completeness,High,ERP,fact_sales_order,order_date,not_null,cleaned,1,1,{}
+fact_sales_order.quantity.not_null,quantity not null,fact_sales_order.quantity: not_null; {},completeness,High,ERP,fact_sales_order,quantity,not_null,cleaned,1,1,{}
+fact_sales_order.unit_price.not_null,unit_price not null,fact_sales_order.unit_price: not_null; {},completeness,High,ERP,fact_sales_order,unit_price,not_null,cleaned,1,1,{}
+fact_sales_order.uom.not_null,uom not null,fact_sales_order.uom: not_null; {},completeness,High,ERP,fact_sales_order,uom,not_null,cleaned,1,1,{}
+fact_sales_order.order_id.unique,order_id unique,fact_sales_order.order_id: unique; {},uniqueness,High,ERP,fact_sales_order,order_id,unique,raw,1,1,{}
+fact_sales_order.order_id.pattern,order_id pattern,fact_sales_order.order_id: pattern; {'pattern': 'O[0-9]{5}'},validity,High,ERP,fact_sales_order,order_id,pattern,cleaned,1,1,"{""pattern"": ""O[0-9]{5}""}"
+fact_sales_order.customer_id.reference,customer_id reference,fact_sales_order.customer_id: reference; {'target': 'dim_customer'},referential_integrity,Critical,ERP,fact_sales_order,customer_id,reference,cleaned,1,1,"{""target"": ""dim_customer""}"
+fact_sales_order.product_id.reference,product_id reference,fact_sales_order.product_id: reference; {'target': 'dim_product'},referential_integrity,Critical,ERP,fact_sales_order,product_id,reference,cleaned,1,1,"{""target"": ""dim_product""}"
+fact_sales_order.facility_id.reference,facility_id reference,fact_sales_order.facility_id: reference; {'target': 'dim_facility'},referential_integrity,Critical,ERP,fact_sales_order,facility_id,reference,cleaned,1,1,"{""target"": ""dim_facility""}"
+fact_sales_order.quantity.nonnegative,quantity nonnegative,fact_sales_order.quantity: nonnegative; {},validity,High,ERP,fact_sales_order,quantity,nonnegative,cleaned,1,1,{}
+fact_sales_order.unit_price.nonnegative,unit_price nonnegative,fact_sales_order.unit_price: nonnegative; {},validity,High,ERP,fact_sales_order,unit_price,nonnegative,cleaned,1,1,{}
+fact_sales_order.quantity.upper_bound,quantity upper bound,fact_sales_order.quantity: upper_bound; {'maximum': 5000},anomaly,Medium,ERP,fact_sales_order,quantity,upper_bound,cleaned,0,1,"{""maximum"": 5000}"
+fact_sales_order.uom.allowed,uom allowed,"fact_sales_order.uom: allowed; {'values': ['EA', 'KG', 'L']}",validity,Medium,ERP,fact_sales_order,uom,allowed,cleaned,1,1,"{""values"": [""EA"", ""KG"", ""L""]}"
+fact_sales_order.uom.canonical_unit,uom canonical unit,fact_sales_order.uom: canonical_unit; {},consistency,Medium,ERP,fact_sales_order,uom,canonical_unit,raw,0,1,{}
+fact_sales_order.uom.product_unit,uom product unit,fact_sales_order.uom: product_unit; {},consistency,High,ERP,fact_sales_order,uom,product_unit,cleaned,1,1,{}
+fact_sales_order.order_date.date,order_date date,fact_sales_order.order_date: date; {},validity,High,ERP,fact_sales_order,order_date,date,cleaned,1,1,{}
+fact_sales_order.order_date.not_future,order_date not future,fact_sales_order.order_date: not_future; {},timeliness,Medium,ERP,fact_sales_order,order_date,not_future,cleaned,1,1,{}
+fact_sales_order_line.line_id.not_null,line_id not null,fact_sales_order_line.line_id: not_null; {},completeness,High,ERP,fact_sales_order_line,line_id,not_null,cleaned,1,1,{}
+fact_sales_order_line.order_id.not_null,order_id not null,fact_sales_order_line.order_id: not_null; {},completeness,High,ERP,fact_sales_order_line,order_id,not_null,cleaned,1,1,{}
+fact_sales_order_line.product_id.not_null,product_id not null,fact_sales_order_line.product_id: not_null; {},completeness,High,ERP,fact_sales_order_line,product_id,not_null,cleaned,1,1,{}
+fact_sales_order_line.order_date.not_null,order_date not null,fact_sales_order_line.order_date: not_null; {},completeness,High,ERP,fact_sales_order_line,order_date,not_null,cleaned,1,1,{}
+fact_sales_order_line.quantity.not_null,quantity not null,fact_sales_order_line.quantity: not_null; {},completeness,High,ERP,fact_sales_order_line,quantity,not_null,cleaned,1,1,{}
+fact_sales_order_line.unit_price.not_null,unit_price not null,fact_sales_order_line.unit_price: not_null; {},completeness,High,ERP,fact_sales_order_line,unit_price,not_null,cleaned,1,1,{}
+fact_sales_order_line.uom.not_null,uom not null,fact_sales_order_line.uom: not_null; {},completeness,High,ERP,fact_sales_order_line,uom,not_null,cleaned,1,1,{}
+fact_sales_order_line.line_id.unique,line_id unique,fact_sales_order_line.line_id: unique; {},uniqueness,High,ERP,fact_sales_order_line,line_id,unique,raw,1,1,{}
+fact_sales_order_line.line_id.pattern,line_id pattern,fact_sales_order_line.line_id: pattern; {'pattern': 'OL[0-9]{5}'},validity,High,ERP,fact_sales_order_line,line_id,pattern,cleaned,1,1,"{""pattern"": ""OL[0-9]{5}""}"
+fact_sales_order_line.order_id.reference,order_id reference,fact_sales_order_line.order_id: reference; {'target': 'fact_sales_order'},referential_integrity,Critical,ERP,fact_sales_order_line,order_id,reference,cleaned,1,1,"{""target"": ""fact_sales_order""}"
+fact_sales_order_line.product_id.reference,product_id reference,fact_sales_order_line.product_id: reference; {'target': 'dim_product'},referential_integrity,Critical,ERP,fact_sales_order_line,product_id,reference,cleaned,1,1,"{""target"": ""dim_product""}"
+fact_sales_order_line.quantity.nonnegative,quantity nonnegative,fact_sales_order_line.quantity: nonnegative; {},validity,High,ERP,fact_sales_order_line,quantity,nonnegative,cleaned,1,1,{}
+fact_sales_order_line.unit_price.nonnegative,unit_price nonnegative,fact_sales_order_line.unit_price: nonnegative; {},validity,High,ERP,fact_sales_order_line,unit_price,nonnegative,cleaned,1,1,{}
+fact_sales_order_line.quantity.upper_bound,quantity upper bound,fact_sales_order_line.quantity: upper_bound; {'maximum': 5000},anomaly,Medium,ERP,fact_sales_order_line,quantity,upper_bound,cleaned,0,1,"{""maximum"": 5000}"
+fact_sales_order_line.uom.allowed,uom allowed,"fact_sales_order_line.uom: allowed; {'values': ['EA', 'KG', 'L']}",validity,Medium,ERP,fact_sales_order_line,uom,allowed,cleaned,1,1,"{""values"": [""EA"", ""KG"", ""L""]}"
+fact_sales_order_line.uom.canonical_unit,uom canonical unit,fact_sales_order_line.uom: canonical_unit; {},consistency,Medium,ERP,fact_sales_order_line,uom,canonical_unit,raw,0,1,{}
+fact_sales_order_line.uom.product_unit,uom product unit,fact_sales_order_line.uom: product_unit; {},consistency,High,ERP,fact_sales_order_line,uom,product_unit,cleaned,1,1,{}
+fact_sales_order_line.order_date.date,order_date date,fact_sales_order_line.order_date: date; {},validity,High,ERP,fact_sales_order_line,order_date,date,cleaned,1,1,{}
+fact_sales_order_line.order_date.not_future,order_date not future,fact_sales_order_line.order_date: not_future; {},timeliness,Medium,ERP,fact_sales_order_line,order_date,not_future,cleaned,1,1,{}
+fact_sales_order_line.order_id.order_line,order_id order line,fact_sales_order_line.order_id: order_line; {},consistency,High,ERP,fact_sales_order_line,order_id,order_line,cleaned,1,1,{}
+fact_production.production_id.not_null,production_id not null,fact_production.production_id: not_null; {},completeness,High,MES,fact_production,production_id,not_null,cleaned,1,1,{}
+fact_production.product_id.not_null,product_id not null,fact_production.product_id: not_null; {},completeness,High,MES,fact_production,product_id,not_null,cleaned,1,1,{}
+fact_production.facility_id.not_null,facility_id not null,fact_production.facility_id: not_null; {},completeness,High,MES,fact_production,facility_id,not_null,cleaned,1,1,{}
+fact_production.material_id.not_null,material_id not null,fact_production.material_id: not_null; {},completeness,High,MES,fact_production,material_id,not_null,cleaned,1,1,{}
+fact_production.production_date.not_null,production_date not null,fact_production.production_date: not_null; {},completeness,High,MES,fact_production,production_date,not_null,cleaned,1,1,{}
+fact_production.quantity.not_null,quantity not null,fact_production.quantity: not_null; {},completeness,High,MES,fact_production,quantity,not_null,cleaned,1,1,{}
+fact_production.uom.not_null,uom not null,fact_production.uom: not_null; {},completeness,High,MES,fact_production,uom,not_null,cleaned,1,1,{}
+fact_production.production_id.unique,production_id unique,fact_production.production_id: unique; {},uniqueness,High,MES,fact_production,production_id,unique,raw,1,1,{}
+fact_production.production_id.pattern,production_id pattern,fact_production.production_id: pattern; {'pattern': 'PR[0-9]{5}'},validity,High,MES,fact_production,production_id,pattern,cleaned,1,1,"{""pattern"": ""PR[0-9]{5}""}"
+fact_production.product_id.reference,product_id reference,fact_production.product_id: reference; {'target': 'dim_product'},referential_integrity,Critical,MES,fact_production,product_id,reference,cleaned,1,1,"{""target"": ""dim_product""}"
+fact_production.facility_id.reference,facility_id reference,fact_production.facility_id: reference; {'target': 'dim_facility'},referential_integrity,Critical,MES,fact_production,facility_id,reference,cleaned,1,1,"{""target"": ""dim_facility""}"
+fact_production.material_id.reference,material_id reference,fact_production.material_id: reference; {'target': 'dim_material'},referential_integrity,Critical,MES,fact_production,material_id,reference,cleaned,1,1,"{""target"": ""dim_material""}"
+fact_production.quantity.nonnegative,quantity nonnegative,fact_production.quantity: nonnegative; {},validity,High,MES,fact_production,quantity,nonnegative,cleaned,1,1,{}
+fact_production.quantity.upper_bound,quantity upper bound,fact_production.quantity: upper_bound; {'maximum': 8000},anomaly,Medium,MES,fact_production,quantity,upper_bound,cleaned,0,1,"{""maximum"": 8000}"
+fact_production.uom.allowed,uom allowed,"fact_production.uom: allowed; {'values': ['EA', 'KG', 'L']}",validity,Medium,MES,fact_production,uom,allowed,cleaned,1,1,"{""values"": [""EA"", ""KG"", ""L""]}"
+fact_production.uom.canonical_unit,uom canonical unit,fact_production.uom: canonical_unit; {},consistency,Medium,MES,fact_production,uom,canonical_unit,raw,0,1,{}
+fact_production.uom.product_unit,uom product unit,fact_production.uom: product_unit; {},consistency,High,MES,fact_production,uom,product_unit,cleaned,1,1,{}
+fact_production.production_date.date,production_date date,fact_production.production_date: date; {},validity,High,MES,fact_production,production_date,date,cleaned,1,1,{}
+fact_production.production_date.not_future,production_date not future,fact_production.production_date: not_future; {},timeliness,Medium,MES,fact_production,production_date,not_future,cleaned,1,1,{}
+fact_inventory.inventory_id.not_null,inventory_id not null,fact_inventory.inventory_id: not_null; {},completeness,High,WMS,fact_inventory,inventory_id,not_null,cleaned,1,1,{}
+fact_inventory.product_id.not_null,product_id not null,fact_inventory.product_id: not_null; {},completeness,High,WMS,fact_inventory,product_id,not_null,cleaned,1,1,{}
+fact_inventory.facility_id.not_null,facility_id not null,fact_inventory.facility_id: not_null; {},completeness,High,WMS,fact_inventory,facility_id,not_null,cleaned,1,1,{}
+fact_inventory.warehouse_id.not_null,warehouse_id not null,fact_inventory.warehouse_id: not_null; {},completeness,High,WMS,fact_inventory,warehouse_id,not_null,cleaned,1,1,{}
+fact_inventory.stock_date.not_null,stock_date not null,fact_inventory.stock_date: not_null; {},completeness,High,WMS,fact_inventory,stock_date,not_null,cleaned,1,1,{}
+fact_inventory.quantity.not_null,quantity not null,fact_inventory.quantity: not_null; {},completeness,High,WMS,fact_inventory,quantity,not_null,cleaned,1,1,{}
+fact_inventory.uom.not_null,uom not null,fact_inventory.uom: not_null; {},completeness,High,WMS,fact_inventory,uom,not_null,cleaned,1,1,{}
+fact_inventory.inventory_id.unique,inventory_id unique,fact_inventory.inventory_id: unique; {},uniqueness,High,WMS,fact_inventory,inventory_id,unique,raw,1,1,{}
+fact_inventory.inventory_id.pattern,inventory_id pattern,fact_inventory.inventory_id: pattern; {'pattern': 'I[0-9]{5}'},validity,High,WMS,fact_inventory,inventory_id,pattern,cleaned,1,1,"{""pattern"": ""I[0-9]{5}""}"
+fact_inventory.product_id.reference,product_id reference,fact_inventory.product_id: reference; {'target': 'dim_product'},referential_integrity,Critical,WMS,fact_inventory,product_id,reference,cleaned,1,1,"{""target"": ""dim_product""}"
+fact_inventory.facility_id.reference,facility_id reference,fact_inventory.facility_id: reference; {'target': 'dim_facility'},referential_integrity,Critical,WMS,fact_inventory,facility_id,reference,cleaned,1,1,"{""target"": ""dim_facility""}"
+fact_inventory.warehouse_id.reference,warehouse_id reference,fact_inventory.warehouse_id: reference; {'target': 'dim_warehouse'},referential_integrity,Critical,WMS,fact_inventory,warehouse_id,reference,cleaned,1,1,"{""target"": ""dim_warehouse""}"
+fact_inventory.quantity.nonnegative,quantity nonnegative,fact_inventory.quantity: nonnegative; {},validity,High,WMS,fact_inventory,quantity,nonnegative,cleaned,1,1,{}
+fact_inventory.quantity.upper_bound,quantity upper bound,fact_inventory.quantity: upper_bound; {'maximum': 10000},anomaly,Medium,WMS,fact_inventory,quantity,upper_bound,cleaned,0,1,"{""maximum"": 10000}"
+fact_inventory.uom.allowed,uom allowed,"fact_inventory.uom: allowed; {'values': ['EA', 'KG', 'L']}",validity,Medium,WMS,fact_inventory,uom,allowed,cleaned,1,1,"{""values"": [""EA"", ""KG"", ""L""]}"
+fact_inventory.uom.canonical_unit,uom canonical unit,fact_inventory.uom: canonical_unit; {},consistency,Medium,WMS,fact_inventory,uom,canonical_unit,raw,0,1,{}
+fact_inventory.uom.product_unit,uom product unit,fact_inventory.uom: product_unit; {},consistency,High,WMS,fact_inventory,uom,product_unit,cleaned,1,1,{}
+fact_inventory.stock_date.date,stock_date date,fact_inventory.stock_date: date; {},validity,High,WMS,fact_inventory,stock_date,date,cleaned,1,1,{}
+fact_inventory.stock_date.not_future,stock_date not future,fact_inventory.stock_date: not_future; {},timeliness,Medium,WMS,fact_inventory,stock_date,not_future,cleaned,1,1,{}
+fact_inventory.warehouse_id.warehouse_facility,warehouse_id warehouse facility,fact_inventory.warehouse_id: warehouse_facility; {},consistency,High,WMS,fact_inventory,warehouse_id,warehouse_facility,cleaned,1,1,{}
+fact_shipment.shipment_id.not_null,shipment_id not null,fact_shipment.shipment_id: not_null; {},completeness,High,LOGISTICS,fact_shipment,shipment_id,not_null,cleaned,1,1,{}
+fact_shipment.order_id.not_null,order_id not null,fact_shipment.order_id: not_null; {},completeness,High,LOGISTICS,fact_shipment,order_id,not_null,cleaned,1,1,{}
+fact_shipment.facility_id.not_null,facility_id not null,fact_shipment.facility_id: not_null; {},completeness,High,LOGISTICS,fact_shipment,facility_id,not_null,cleaned,1,1,{}
+fact_shipment.carrier.not_null,carrier not null,fact_shipment.carrier: not_null; {},completeness,High,LOGISTICS,fact_shipment,carrier,not_null,cleaned,1,1,{}
+fact_shipment.ship_date.not_null,ship_date not null,fact_shipment.ship_date: not_null; {},completeness,High,LOGISTICS,fact_shipment,ship_date,not_null,cleaned,1,1,{}
+fact_shipment.promised_date.not_null,promised_date not null,fact_shipment.promised_date: not_null; {},completeness,High,LOGISTICS,fact_shipment,promised_date,not_null,cleaned,1,1,{}
+fact_shipment.delivery_date.not_null,delivery_date not null,fact_shipment.delivery_date: not_null; {},completeness,High,LOGISTICS,fact_shipment,delivery_date,not_null,cleaned,1,1,{}
+fact_shipment.quantity.not_null,quantity not null,fact_shipment.quantity: not_null; {},completeness,High,LOGISTICS,fact_shipment,quantity,not_null,cleaned,1,1,{}
+fact_shipment.shipment_id.unique,shipment_id unique,fact_shipment.shipment_id: unique; {},uniqueness,High,LOGISTICS,fact_shipment,shipment_id,unique,raw,1,1,{}
+fact_shipment.shipment_id.pattern,shipment_id pattern,fact_shipment.shipment_id: pattern; {'pattern': 'SH[0-9]{5}'},validity,High,LOGISTICS,fact_shipment,shipment_id,pattern,cleaned,1,1,"{""pattern"": ""SH[0-9]{5}""}"
+fact_shipment.order_id.reference,order_id reference,fact_shipment.order_id: reference; {'target': 'fact_sales_order'},referential_integrity,Critical,LOGISTICS,fact_shipment,order_id,reference,cleaned,1,1,"{""target"": ""fact_sales_order""}"
+fact_shipment.facility_id.reference,facility_id reference,fact_shipment.facility_id: reference; {'target': 'dim_facility'},referential_integrity,Critical,LOGISTICS,fact_shipment,facility_id,reference,cleaned,1,1,"{""target"": ""dim_facility""}"
+fact_shipment.quantity.nonnegative,quantity nonnegative,fact_shipment.quantity: nonnegative; {},validity,High,LOGISTICS,fact_shipment,quantity,nonnegative,cleaned,1,1,{}
+fact_shipment.quantity.upper_bound,quantity upper bound,fact_shipment.quantity: upper_bound; {'maximum': 5000},anomaly,Medium,LOGISTICS,fact_shipment,quantity,upper_bound,cleaned,0,1,"{""maximum"": 5000}"
+fact_shipment.ship_date.date,ship_date date,fact_shipment.ship_date: date; {},validity,High,LOGISTICS,fact_shipment,ship_date,date,cleaned,1,1,{}
+fact_shipment.ship_date.not_future,ship_date not future,fact_shipment.ship_date: not_future; {},timeliness,Medium,LOGISTICS,fact_shipment,ship_date,not_future,cleaned,1,1,{}
+fact_shipment.promised_date.date,promised_date date,fact_shipment.promised_date: date; {},validity,High,LOGISTICS,fact_shipment,promised_date,date,cleaned,1,1,{}
+fact_shipment.promised_date.not_future,promised_date not future,fact_shipment.promised_date: not_future; {},timeliness,Medium,LOGISTICS,fact_shipment,promised_date,not_future,cleaned,1,1,{}
+fact_shipment.delivery_date.date,delivery_date date,fact_shipment.delivery_date: date; {},validity,High,LOGISTICS,fact_shipment,delivery_date,date,cleaned,1,1,{}
+fact_shipment.delivery_date.not_future,delivery_date not future,fact_shipment.delivery_date: not_future; {},timeliness,Medium,LOGISTICS,fact_shipment,delivery_date,not_future,cleaned,1,1,{}
+fact_shipment.delivery_date.date_order,delivery_date date order,fact_shipment.delivery_date: date_order; {'earlier': 'ship_date'},validity,High,LOGISTICS,fact_shipment,delivery_date,date_order,cleaned,1,1,"{""earlier"": ""ship_date""}"
+fact_shipment.promised_date.date_order,promised_date date order,fact_shipment.promised_date: date_order; {'earlier': 'ship_date'},validity,High,LOGISTICS,fact_shipment,promised_date,date_order,cleaned,1,1,"{""earlier"": ""ship_date""}"
+fact_shipment.ship_date.shipment_order,ship_date shipment order,fact_shipment.ship_date: shipment_order; {},consistency,High,LOGISTICS,fact_shipment,ship_date,shipment_order,cleaned,1,1,{}
+fact_shipment.delivery_date.delivery_delay,delivery_date delivery delay,fact_shipment.delivery_date: delivery_delay; {'maximum': 90},anomaly,Low,LOGISTICS,fact_shipment,delivery_date,delivery_delay,cleaned,0,1,"{""maximum"": 90}"

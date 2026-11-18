@@ -1,0 +1,2 @@
+total_orders,order_quantity,average_order_quantity,sales_value,production_quantity,inventory_quantity,inventory_snapshot_date,shipments,delivered_shipments,on_time_delivery_rate,average_delivery_delay,late_shipments,order_fulfillment_rate,dq_score,failed_rules,open_exceptions,critical_exceptions
+4599,30353412.0,6600.002609262883,9459452164.0,58834906.0,2476422.0,2026-06-30,4414,4414,0.48640688717716357,2.9086995922066152,2267,0.9597738638834529,99.3191,76,3601,1830

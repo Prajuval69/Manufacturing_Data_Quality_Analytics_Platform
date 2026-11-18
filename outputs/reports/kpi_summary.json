@@ -1,0 +1,19 @@
+{
+  "total_orders": 4599,
+  "order_quantity": 30353412.0,
+  "average_order_quantity": 6600.002609262883,
+  "sales_value": 9459452164.0,
+  "production_quantity": 58834906.0,
+  "inventory_quantity": 2476422.0,
+  "inventory_snapshot_date": "2026-06-30",
+  "shipments": 4414,
+  "delivered_shipments": 4414,
+  "on_time_delivery_rate": 0.48640688717716357,
+  "average_delivery_delay": 2.9086995922066152,
+  "late_shipments": 2267,
+  "order_fulfillment_rate": 0.9597738638834529,
+  "dq_score": 99.3191,
+  "failed_rules": 76,
+  "open_exceptions": 3601,
+  "critical_exceptions": 1830
+}

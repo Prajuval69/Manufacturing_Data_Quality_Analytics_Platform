@@ -1,0 +1,5 @@
+product_id,product_description,category,uom,supplier_id,source_row,failed_rule_ids
+P00033,PACKRIGHT CONTAINER 0032,POLYMER PACKAGING,BANANAS,S00044,32,dim_product.uom.allowed;dim_product.uom.canonical_unit
+P00066,PACKRIGHT CONTAINER 0065,,EA,S00070,65,dim_product.category.not_null
+P00115,PACKRIGHT CONTAINER 0114,INTERMEDIATE BULK CONTAINERS,EA,,114,dim_product.supplier_id.not_null
+P00006,PACKRIGHT CONTAINER 0005,FIBER PACKAGING,EA,S00054,150,dim_product.product_id.unique

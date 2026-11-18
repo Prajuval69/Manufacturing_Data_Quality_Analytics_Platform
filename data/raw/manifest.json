@@ -1,0 +1,25 @@
+{
+  "company": "PackRight Manufacturing (fictional)",
+  "seed": 42,
+  "corruption_rate": 0.03,
+  "scale": 1.0,
+  "as_of": "2026-07-31",
+  "period": [
+    "2025-01-01",
+    "2026-06-30"
+  ],
+  "raw_counts": {
+    "dim_customer": 503,
+    "dim_supplier": 101,
+    "dim_facility": 6,
+    "dim_product": 151,
+    "dim_material": 61,
+    "dim_warehouse": 6,
+    "fact_sales_order": 5030,
+    "fact_sales_order_line": 5030,
+    "fact_production": 8048,
+    "fact_inventory": 5030,
+    "fact_shipment": 5030
+  },
+  "defect_operations": 1842
+}

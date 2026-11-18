@@ -1,0 +1,24 @@
+term,definition,business_owner,related_field,calculation
+Production Quantity,Completed packaging units,PackRight Analytics Owner,fact_production.quantity,SUM(quantity) by date; EA only
+On-Time Delivery Rate,Share of delivered shipments meeting promise,PackRight Analytics Owner,fact_shipment.delivery_date,COUNT(delivery_date <= promised_date) / COUNT(delivered shipments)
+Inventory Quantity,Latest observed balance per facility/product/warehouse,PackRight Analytics Owner,fact_inventory.quantity,SUM(latest quantity per facility/product/warehouse); monthly latest within month
+Data Quality Score,Project-specific weighted pass rate across rule checks,PackRight Analytics Owner,dq_score.score,100 * SUM(weight * dimension pass rate) / SUM(applicable weights)
+Customer,Fictional packaging buyer identified by customer_id,PackRight Analytics Owner,dim_customer.customer_id,
+Product,"Packaging SKU with category, unit and supplier",PackRight Analytics Owner,dim_product.product_id,
+Facility,PackRight production plant,PackRight Analytics Owner,dim_facility.facility_id,
+Sales Order,One single-product order header,PackRight Analytics Owner,fact_sales_order.order_id,COUNT(order_id)
+Order Line,Single product line linked to one order; one line per order in this simulation,PackRight Analytics Owner,fact_sales_order_line.line_id,Do not sum headers and lines together
+Shipment,Delivery event linked to a curated order,PackRight Analytics Owner,fact_shipment.shipment_id,COUNT(shipment_id)
+Exception,One failed rule on one source occurrence,PackRight Analytics Owner,dq_exception.exception_id,COUNT(exception_id); may exceed defective record count
+Completeness,Required fields populated,PackRight Analytics Owner,dq_rule.dimension,Passed required-field checks / all required-field checks
+Validity,"Values meeting formats, domains and ranges",PackRight Analytics Owner,dq_rule.dimension,Passed validity checks / validity checks
+Consistency,Agreement with canonical master and related fields,PackRight Analytics Owner,dq_rule.dimension,Passed consistency checks / consistency checks
+Uniqueness,No repeated business key after first occurrence,PackRight Analytics Owner,dq_rule.dimension,Extra duplicate occurrences fail
+Referential Integrity,Foreign keys resolve to accepted parents,PackRight Analytics Owner,dq_rule.dimension,Parent membership checks
+Data Lineage,Trace from source through transformations to exports,PackRight Analytics Owner,data_lineage.target,
+Critical Data Element,"Identifier, required date, quantity or category influencing decisions",PackRight Analytics Owner,metadata_catalog.critical_data_element,
+Order Fulfillment Rate,Curated orders with at least one delivered shipment,PackRight Analytics Owner,executive_kpis.order_fulfillment_rate,DISTINCT shipped order_id / COUNT(curated orders)
+Average Delivery Delay,"Nonnegative days beyond promise, across delivered shipments",PackRight Analytics Owner,executive_kpis.average_delivery_delay,"AVG(MAX(delivery_date - promised_date, 0))"
+Quarantine,Source occurrence excluded for blocking rule failures,PackRight Analytics Owner,dq_run.quarantined_records,Raw count minus curated count
+Sales Value,Ordered value in synthetic INR,PackRight Analytics Owner,executive_kpis.sales_value,SUM(quantity * unit_price)
+Timeliness,Observation does not fall after fixed as-of date,PackRight Analytics Owner,dq_rule.dimension,"Historical batch check, not live freshness SLA"

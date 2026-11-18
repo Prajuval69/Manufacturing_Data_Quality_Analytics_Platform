@@ -1,0 +1,4 @@
+material_id,material_name,supplier_id,uom,source_row,failed_rule_ids
+M00012,SYNTHETIC MATERIAL 011,,KG,11,dim_material.supplier_id.not_null
+M00020,SYNTHETIC MATERIAL 019,S00038,BANANAS,19,dim_material.uom.allowed;dim_material.uom.canonical_unit
+M00037,SYNTHETIC MATERIAL 036,S00004,KG,60,dim_material.material_id.unique

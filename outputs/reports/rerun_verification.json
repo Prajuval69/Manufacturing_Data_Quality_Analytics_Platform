@@ -1,0 +1,87 @@
+{
+  "same_raw_sources": true,
+  "same_database_fingerprints": true,
+  "run_id": "e1f9eb9be6d0faec09d1",
+  "tables": {
+    "dim_customer": {
+      "count": 500,
+      "sha256": "4e16a1d8bc4420c66ca8a2a137a764eb194ebc6991f6cd83e5c8a1c2cefd372f"
+    },
+    "dim_product": {
+      "count": 147,
+      "sha256": "d12da0b9b23ed5e145b067d6cdbc8111cca3a4df4d23a16612bbd09e13de5368"
+    },
+    "dim_facility": {
+      "count": 5,
+      "sha256": "235263547ad4ac0aba73abf4a5dfd8dc38d5de58d90fd551a7700ec63f6d4336"
+    },
+    "dim_supplier": {
+      "count": 100,
+      "sha256": "ca60345a03859892033b8f37a261b02fbd2edba44e4ad7717c0fa8eb4d1d669c"
+    },
+    "dim_material": {
+      "count": 58,
+      "sha256": "23ed67d4c4282e85a90a339f169108e38374ec3e45de44a6fed408c4f94d584f"
+    },
+    "dim_warehouse": {
+      "count": 5,
+      "sha256": "b48323fafa5581525a48e6f0d372ab749eaf5db91816e24fdce6327a7b27a755"
+    },
+    "fact_sales_order": {
+      "count": 4599,
+      "sha256": "4c4c2377f1b0bae1161abed4d1711f426dcdab19e630c8c86494793bbbea12de"
+    },
+    "fact_sales_order_line": {
+      "count": 4377,
+      "sha256": "314d4cdb4130689e43621c4d39de5c6d8298bc07b5a7d68422bbad09e032872b"
+    },
+    "fact_production": {
+      "count": 7253,
+      "sha256": "e646b61244097c5b67ee86d0651a8256d6d8c6c92e0a2481a9af89dcf4ea9de2"
+    },
+    "fact_inventory": {
+      "count": 4690,
+      "sha256": "d9a64ad6ceccc7e95278f6374719ab3404bbb6dcb483f1e51289a59c81902c83"
+    },
+    "fact_shipment": {
+      "count": 4414,
+      "sha256": "4962da07779ff3a42993a62b51efa54b12c570b685b09f61f40686c9571ce1dd"
+    },
+    "dq_rule": {
+      "count": 159,
+      "sha256": "238081a33cbd501ebdd555c629b67ec0e906e9105fd78cded192b33c23a158b0"
+    },
+    "dq_result": {
+      "count": 159,
+      "sha256": "1d9cdb69520d889f218f0f924c0375633b30a7cdc871deb3e600a8c5cad6f627"
+    },
+    "dq_exception": {
+      "count": 3927,
+      "sha256": "f6f57279490389a994d7f043d0b800fbcbae864a8d39dc3bd63a2d064c6b9c04"
+    },
+    "dq_check": {
+      "count": 588018,
+      "sha256": "17c7a4ae1c16c5287aee83ce12864e3990596838e12daa475a75f3a21755109d"
+    },
+    "dq_score": {
+      "count": 53,
+      "sha256": "3dc53ea7e174726915112d510fbfa7a9c22905bfccebf5b18786aabe32ac0f55"
+    },
+    "executive_kpis": {
+      "count": 1,
+      "sha256": "f3807a1193db5e3e1e304c058ff2298b55f8eaee12a26f9ec365d39337cbfa9d"
+    },
+    "metadata_catalog": {
+      "count": 58,
+      "sha256": "05a95fb4b347a7d067338f740d5000b195197e2e9c2597078e108b4680e252ca"
+    },
+    "business_glossary": {
+      "count": 23,
+      "sha256": "d88fc4541147ab401dc062c1e0d825570c7533f4b29f2655e6af3f4aa00705af"
+    },
+    "data_lineage": {
+      "count": 88,
+      "sha256": "1d5ab8d89909382217910104df189832888b347f0a6369550d9159ad593736ae"
+    }
+  }
+}

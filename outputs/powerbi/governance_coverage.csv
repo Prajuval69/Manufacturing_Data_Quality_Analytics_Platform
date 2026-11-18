@@ -1,0 +1,12 @@
+table_name,fields,documented_fields,owned_fields,critical_fields,documented_critical_fields,lineage_edges,glossary_terms,metadata_coverage,ownership_coverage,critical_coverage
+dim_customer,3,3,3,1,1,7,1,1.0,1.0,1.0
+dim_facility,3,3,3,1,1,7,1,1.0,1.0,1.0
+dim_material,4,4,4,2,2,8,0,1.0,1.0,1.0
+dim_product,5,5,5,3,3,8,1,1.0,1.0,1.0
+dim_supplier,3,3,3,1,1,7,0,1.0,1.0,1.0
+dim_warehouse,3,3,3,2,2,8,0,1.0,1.0,1.0
+fact_inventory,7,7,7,6,6,9,1,1.0,1.0,1.0
+fact_production,7,7,7,6,6,9,1,1.0,1.0,1.0
+fact_sales_order,8,8,8,6,6,9,1,1.0,1.0,1.0
+fact_sales_order_line,7,7,7,5,5,8,1,1.0,1.0,1.0
+fact_shipment,8,8,8,7,7,8,2,1.0,1.0,1.0

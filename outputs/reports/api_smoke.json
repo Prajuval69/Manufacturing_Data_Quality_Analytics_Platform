@@ -1,0 +1,149 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "run_id": "e1f9eb9be6d0faec09d1",
+  "passed": 20,
+  "failed": 0,
+  "results": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/openapi.json",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/kpis/summary",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/kpis/facilities",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/kpis/products",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/data-quality/summary",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/data-quality/rules",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/governance/metadata",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/governance/glossary",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/governance/lineage",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/profiling/fact_production",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/exceptions?status=Open&severity=High&limit=2",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/exceptions/12fd6e9a929328016059b2b1",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/exceptions/12fd6e9a929328016059b2b1",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/exceptions/12fd6e9a929328016059b2b1",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/exceptions/not-present",
+      "expected_status": 404,
+      "status": 404,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/profiling/not-present",
+      "expected_status": 404,
+      "status": 404,
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/exceptions?limit=0",
+      "expected_status": 422,
+      "status": 422,
+      "passed": true
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/exceptions/12fd6e9a929328016059b2b1",
+      "expected_status": 422,
+      "status": 422,
+      "passed": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/assistant/ask",
+      "expected_status": 200,
+      "status": 200,
+      "passed": true
+    }
+  ],
+  "assistant_mode": "deterministic"
+}

@@ -1,0 +1,4 @@
+customer_id,customer_name,country,source_row,failed_rule_ids
+C00456,PACKRIGHT CUSTOMER 0455,DE,500,dim_customer.customer_id.unique
+C00445,PACKRIGHT CUSTOMER 0444,DE,501,dim_customer.customer_id.unique
+C00179,PACKRIGHT CUSTOMER 0178,AE,502,dim_customer.customer_id.unique

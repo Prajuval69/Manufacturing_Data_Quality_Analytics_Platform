@@ -1,0 +1,16 @@
+rule_id,records_checked,records_failed,failure_rate,severity
+fact_sales_order_line.order_id.reference,5030,407,0.08091451292246521,Critical
+fact_shipment.order_id.reference,5030,402,0.07992047713717694,Critical
+fact_production.material_id.reference,8048,244,0.030318091451292245,Critical
+fact_production.product_id.reference,8048,197,0.02447813121272366,Critical
+fact_sales_order_line.order_id.order_line,5030,172,0.0341948310139165,High
+fact_sales_order.product_id.reference,5030,150,0.02982107355864811,Critical
+fact_sales_order_line.product_id.reference,5030,150,0.02982107355864811,Critical
+fact_inventory.product_id.reference,5030,111,0.022067594433399604,Critical
+fact_production.uom.canonical_unit,8048,97,0.012052683896620278,Medium
+fact_production.production_date.not_null,8048,96,0.011928429423459244,High
+fact_inventory.uom.canonical_unit,5030,61,0.012127236580516898,Medium
+fact_sales_order.uom.canonical_unit,5030,60,0.011928429423459244,Medium
+fact_sales_order_line.uom.canonical_unit,5030,60,0.011928429423459244,Medium
+fact_shipment.ship_date.not_null,5030,60,0.011928429423459244,High
+fact_sales_order.order_date.not_null,5030,59,0.01172962226640159,High

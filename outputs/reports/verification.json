@@ -1,0 +1,281 @@
+{
+  "passed": 37,
+  "failed": 0,
+  "checks": [
+    {
+      "check": "database_integrity",
+      "passed": true,
+      "details": "PRAGMA integrity_check"
+    },
+    {
+      "check": "foreign_keys",
+      "passed": true,
+      "details": "0 violations"
+    },
+    {
+      "check": "counts_reconcile",
+      "passed": true,
+      "details": {
+        "run_id": "e1f9eb9be6d0faec09d1",
+        "started_at": "2026-10-03T03:45:37.858989+00:00",
+        "completed_at": "2026-10-03T03:45:43.065037+00:00",
+        "as_of": "2026-07-31",
+        "overall_score": 99.3191,
+        "raw_records": 28996,
+        "curated_records": 26148,
+        "quarantined_records": 2848,
+        "rule_count": 159,
+        "exception_count": 3927,
+        "weights_json": "{\"completeness\": 0.3, \"validity\": 0.25, \"consistency\": 0.2, \"uniqueness\": 0.1, \"referential_integrity\": 0.1, \"timeliness_anomaly\": 0.05}",
+        "input_hash": "e1f9eb9be6d0faec09d11d54e31f2dbc8e9a62853a562f6cd96d8e918c2b5505"
+      }
+    },
+    {
+      "check": "export_dim_customer",
+      "passed": true,
+      "details": {
+        "database": 500,
+        "csv": 500
+      }
+    },
+    {
+      "check": "unique_dim_customer",
+      "passed": true,
+      "details": "customer_id"
+    },
+    {
+      "check": "export_dim_product",
+      "passed": true,
+      "details": {
+        "database": 147,
+        "csv": 147
+      }
+    },
+    {
+      "check": "unique_dim_product",
+      "passed": true,
+      "details": "product_id"
+    },
+    {
+      "check": "export_dim_facility",
+      "passed": true,
+      "details": {
+        "database": 5,
+        "csv": 5
+      }
+    },
+    {
+      "check": "unique_dim_facility",
+      "passed": true,
+      "details": "facility_id"
+    },
+    {
+      "check": "export_dim_supplier",
+      "passed": true,
+      "details": {
+        "database": 100,
+        "csv": 100
+      }
+    },
+    {
+      "check": "unique_dim_supplier",
+      "passed": true,
+      "details": "supplier_id"
+    },
+    {
+      "check": "export_dim_material",
+      "passed": true,
+      "details": {
+        "database": 58,
+        "csv": 58
+      }
+    },
+    {
+      "check": "unique_dim_material",
+      "passed": true,
+      "details": "material_id"
+    },
+    {
+      "check": "export_dim_warehouse",
+      "passed": true,
+      "details": {
+        "database": 5,
+        "csv": 5
+      }
+    },
+    {
+      "check": "unique_dim_warehouse",
+      "passed": true,
+      "details": "warehouse_id"
+    },
+    {
+      "check": "export_fact_sales_order",
+      "passed": true,
+      "details": {
+        "database": 4599,
+        "csv": 4599
+      }
+    },
+    {
+      "check": "unique_fact_sales_order",
+      "passed": true,
+      "details": "order_id"
+    },
+    {
+      "check": "export_fact_sales_order_line",
+      "passed": true,
+      "details": {
+        "database": 4377,
+        "csv": 4377
+      }
+    },
+    {
+      "check": "unique_fact_sales_order_line",
+      "passed": true,
+      "details": "line_id"
+    },
+    {
+      "check": "export_fact_production",
+      "passed": true,
+      "details": {
+        "database": 7253,
+        "csv": 7253
+      }
+    },
+    {
+      "check": "unique_fact_production",
+      "passed": true,
+      "details": "production_id"
+    },
+    {
+      "check": "export_fact_inventory",
+      "passed": true,
+      "details": {
+        "database": 4690,
+        "csv": 4690
+      }
+    },
+    {
+      "check": "unique_fact_inventory",
+      "passed": true,
+      "details": "inventory_id"
+    },
+    {
+      "check": "export_fact_shipment",
+      "passed": true,
+      "details": {
+        "database": 4414,
+        "csv": 4414
+      }
+    },
+    {
+      "check": "unique_fact_shipment",
+      "passed": true,
+      "details": "shipment_id"
+    },
+    {
+      "check": "exception_evidence",
+      "passed": true,
+      "details": {
+        "failed_checks": 3927,
+        "exceptions": 3927
+      }
+    },
+    {
+      "check": "score_recalculation",
+      "passed": true,
+      "details": {
+        "recalculated": 99.3191,
+        "stored": 99.3191
+      }
+    },
+    {
+      "check": "rules_executed",
+      "passed": true,
+      "details": 159
+    },
+    {
+      "check": "curated_blocking_rules",
+      "passed": true,
+      "details": "Every blocking rule passes on curated records"
+    },
+    {
+      "check": "metadata_contract_coverage",
+      "passed": true,
+      "details": 58
+    },
+    {
+      "check": "business_glossary",
+      "passed": true,
+      "details": 23
+    },
+    {
+      "check": "transaction_period",
+      "passed": true,
+      "details": {
+        "months": 19
+      }
+    },
+    {
+      "check": "sales_reconciliation",
+      "passed": true,
+      "details": 9459452164.0
+    },
+    {
+      "check": "inventory_snapshot_reconciliation",
+      "passed": true,
+      "details": 2476422.0
+    },
+    {
+      "check": "kpi_ranges",
+      "passed": true,
+      "details": {
+        "total_orders": 4599,
+        "order_quantity": 30353412.0,
+        "average_order_quantity": 6600.002609262883,
+        "sales_value": 9459452164.0,
+        "production_quantity": 58834906.0,
+        "inventory_quantity": 2476422.0,
+        "inventory_snapshot_date": "2026-06-30",
+        "shipments": 4414,
+        "delivered_shipments": 4414,
+        "on_time_delivery_rate": 0.48640688717716357,
+        "average_delivery_delay": 2.9086995922066152,
+        "late_shipments": 2267,
+        "order_fulfillment_rate": 0.9597738638834529,
+        "dq_score": 99.3191,
+        "failed_rules": 76,
+        "open_exceptions": 3601,
+        "critical_exceptions": 1830
+      }
+    },
+    {
+      "check": "meaningful_kpis",
+      "passed": true,
+      "details": {
+        "total_orders": 4599,
+        "order_quantity": 30353412.0,
+        "average_order_quantity": 6600.002609262883,
+        "sales_value": 9459452164.0,
+        "production_quantity": 58834906.0,
+        "inventory_quantity": 2476422.0,
+        "inventory_snapshot_date": "2026-06-30",
+        "shipments": 4414,
+        "delivered_shipments": 4414,
+        "on_time_delivery_rate": 0.48640688717716357,
+        "average_delivery_delay": 2.9086995922066152,
+        "late_shipments": 2267,
+        "order_fulfillment_rate": 0.9597738638834529,
+        "dq_score": 99.3191,
+        "failed_rules": 76,
+        "open_exceptions": 3601,
+        "critical_exceptions": 1830
+      }
+    },
+    {
+      "check": "no_fake_pbix",
+      "passed": true,
+      "details": "CSV-based Power BI implementation"
+    }
+  ]
+}

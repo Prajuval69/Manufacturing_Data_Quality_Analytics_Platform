@@ -1,0 +1,127 @@
+{
+  "run_id": "e1f9eb9be6d0faec09d1",
+  "started_at": "2026-10-03T03:45:37.858989+00:00",
+  "completed_at": "2026-10-03T03:46:47.539712+00:00",
+  "as_of": "2026-07-31",
+  "overall_score": 99.3191,
+  "raw_records": 28996,
+  "curated_records": 26148,
+  "quarantined_records": 2848,
+  "rule_count": 159,
+  "exception_count": 3927,
+  "weights_json": "{\"completeness\": 0.3, \"validity\": 0.25, \"consistency\": 0.2, \"uniqueness\": 0.1, \"referential_integrity\": 0.1, \"timeliness_anomaly\": 0.05}",
+  "input_hash": "e1f9eb9be6d0faec09d11d54e31f2dbc8e9a62853a562f6cd96d8e918c2b5505",
+  "counts": {
+    "dim_supplier": {
+      "raw": 101,
+      "curated": 100,
+      "quarantined": 1
+    },
+    "dim_customer": {
+      "raw": 503,
+      "curated": 500,
+      "quarantined": 3
+    },
+    "dim_facility": {
+      "raw": 6,
+      "curated": 5,
+      "quarantined": 1
+    },
+    "dim_product": {
+      "raw": 151,
+      "curated": 147,
+      "quarantined": 4
+    },
+    "dim_material": {
+      "raw": 61,
+      "curated": 58,
+      "quarantined": 3
+    },
+    "dim_warehouse": {
+      "raw": 6,
+      "curated": 5,
+      "quarantined": 1
+    },
+    "fact_sales_order": {
+      "raw": 5030,
+      "curated": 4599,
+      "quarantined": 431
+    },
+    "fact_sales_order_line": {
+      "raw": 5030,
+      "curated": 4377,
+      "quarantined": 653
+    },
+    "fact_production": {
+      "raw": 8048,
+      "curated": 7253,
+      "quarantined": 795
+    },
+    "fact_inventory": {
+      "raw": 5030,
+      "curated": 4690,
+      "quarantined": 340
+    },
+    "fact_shipment": {
+      "raw": 5030,
+      "curated": 4414,
+      "quarantined": 616
+    }
+  },
+  "reporting_files": 28,
+  "exception_statuses": {
+    "Open": 3601,
+    "Resolved": 326
+  },
+  "dimension_scores": [
+    {
+      "scope": "dimension",
+      "group_name": "anomaly",
+      "score": 99.4066,
+      "checks": 33198,
+      "failed_checks": 197
+    },
+    {
+      "scope": "dimension",
+      "group_name": "completeness",
+      "score": 99.7601,
+      "checks": 210083,
+      "failed_checks": 504
+    },
+    {
+      "scope": "dimension",
+      "group_name": "consistency",
+      "score": 98.9568,
+      "checks": 62406,
+      "failed_checks": 651
+    },
+    {
+      "scope": "dimension",
+      "group_name": "referential_integrity",
+      "score": 97.5758,
+      "checks": 75490,
+      "failed_checks": 1830
+    },
+    {
+      "scope": "dimension",
+      "group_name": "timeliness",
+      "score": 99.5553,
+      "checks": 38228,
+      "failed_checks": 170
+    },
+    {
+      "scope": "dimension",
+      "group_name": "uniqueness",
+      "score": 99.393,
+      "checks": 28996,
+      "failed_checks": 176
+    },
+    {
+      "scope": "dimension",
+      "group_name": "validity",
+      "score": 99.7142,
+      "checks": 139617,
+      "failed_checks": 399
+    }
+  ]
+}

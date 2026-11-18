@@ -1,0 +1,7 @@
+facility_id,facility_name,city,source_row
+F001,CHN Plant,Chennai,0
+F002,HYDERABAD,Hyderabad,1
+F003,PUNE,Pune,2
+F004,MUMBAI,Mumbai,3
+F005,BENGALURU,Bengaluru,4
+F002,HYDERABAD,Hyderabad,5

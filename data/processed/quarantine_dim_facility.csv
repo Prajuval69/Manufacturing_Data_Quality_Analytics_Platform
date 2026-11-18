@@ -1,0 +1,2 @@
+facility_id,facility_name,city,source_row,failed_rule_ids
+F002,HYDERABAD,HYDERABAD,5,dim_facility.facility_id.unique

@@ -1,0 +1,12 @@
+{
+  "python_files_parsed": 37,
+  "source_issues": [],
+  "possible_secret_files": [],
+  "env_ignored": true,
+  "example_key_empty": true,
+  "fake_pbix_files": [],
+  "missing_docs": [],
+  "temporary_build_files": [],
+  "git_repository_present": false,
+  "passed": true
+}

@@ -1,0 +1,2 @@
+warehouse_id,facility_id,warehouse_name,source_row,failed_rule_ids
+W002,F002,HYDERABAD WAREHOUSE,5,dim_warehouse.warehouse_id.unique

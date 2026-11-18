@@ -1,0 +1,2 @@
+supplier_id,supplier_name,country,source_row,failed_rule_ids
+S00080,SYNTHETIC SUPPLIER 0079,IN,100,dim_supplier.supplier_id.unique

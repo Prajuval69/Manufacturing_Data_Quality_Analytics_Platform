@@ -1,0 +1,59 @@
+table_name,field_name,business_name,description,data_type,source_system,sensitivity,owner,refresh_frequency,critical_data_element
+dim_customer,customer_id,Customer Id,Unique identifier for customer; resolves to master or transaction parent.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+dim_customer,customer_name,Customer Name,Canonical customer name in the fictional PackRight dataset.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,0
+dim_customer,country,Country,Canonical country in the fictional PackRight dataset.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,0
+dim_product,product_id,Product Id,Unique identifier for product; resolves to master or transaction parent.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+dim_product,product_description,Product Description,Canonical product description in the fictional PackRight dataset.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,0
+dim_product,category,Category,Packaging family from the controlled product-category reference.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+dim_product,uom,Uom,"Standard unit: EA=each, KG=kilogram, L=litre.",string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,0
+dim_product,supplier_id,Supplier Id,Unique identifier for supplier; resolves to master or transaction parent.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+dim_facility,facility_id,Facility Id,Unique identifier for facility; resolves to master or transaction parent.,string,MASTER_DATA,Synthetic - Public Demonstration,MASTER_DATA Business Owner,On batch execution,1
+dim_facility,facility_name,Facility Name,Canonical facility name in the fictional PackRight dataset.,string,MASTER_DATA,Synthetic - Public Demonstration,MASTER_DATA Business Owner,On batch execution,0
+dim_facility,city,City,Canonical city in the fictional PackRight dataset.,string,MASTER_DATA,Synthetic - Public Demonstration,MASTER_DATA Business Owner,On batch execution,0
+dim_supplier,supplier_id,Supplier Id,Unique identifier for supplier; resolves to master or transaction parent.,string,MASTER_DATA,Synthetic - Public Demonstration,MASTER_DATA Business Owner,On batch execution,1
+dim_supplier,supplier_name,Supplier Name,Canonical supplier name in the fictional PackRight dataset.,string,MASTER_DATA,Synthetic - Public Demonstration,MASTER_DATA Business Owner,On batch execution,0
+dim_supplier,country,Country,Canonical country in the fictional PackRight dataset.,string,MASTER_DATA,Synthetic - Public Demonstration,MASTER_DATA Business Owner,On batch execution,0
+dim_material,material_id,Material Id,Unique identifier for material; resolves to master or transaction parent.,string,MASTER_DATA,Synthetic - Public Demonstration,MASTER_DATA Business Owner,On batch execution,1
+dim_material,material_name,Material Name,Canonical material name in the fictional PackRight dataset.,string,MASTER_DATA,Synthetic - Public Demonstration,MASTER_DATA Business Owner,On batch execution,0
+dim_material,supplier_id,Supplier Id,Unique identifier for supplier; resolves to master or transaction parent.,string,MASTER_DATA,Synthetic - Public Demonstration,MASTER_DATA Business Owner,On batch execution,1
+dim_material,uom,Uom,"Standard unit: EA=each, KG=kilogram, L=litre.",string,MASTER_DATA,Synthetic - Public Demonstration,MASTER_DATA Business Owner,On batch execution,0
+dim_warehouse,warehouse_id,Warehouse Id,Unique identifier for warehouse; resolves to master or transaction parent.,string,WMS,Synthetic - Public Demonstration,WMS Business Owner,On batch execution,1
+dim_warehouse,facility_id,Facility Id,Unique identifier for facility; resolves to master or transaction parent.,string,WMS,Synthetic - Public Demonstration,WMS Business Owner,On batch execution,1
+dim_warehouse,warehouse_name,Warehouse Name,Canonical warehouse name in the fictional PackRight dataset.,string,WMS,Synthetic - Public Demonstration,WMS Business Owner,On batch execution,0
+fact_sales_order,order_id,Order Id,Unique identifier for order; resolves to master or transaction parent.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order,customer_id,Customer Id,Unique identifier for customer; resolves to master or transaction parent.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order,product_id,Product Id,Unique identifier for product; resolves to master or transaction parent.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order,facility_id,Facility Id,Unique identifier for facility; resolves to master or transaction parent.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order,order_date,Order Date,Calendar day when the fictional order was placed.,date,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order,quantity,Quantity,Number of units at this table's documented grain; interpret with uom.,decimal,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order,unit_price,Unit Price,Synthetic INR price per ordered unit; sales value is quantity times unit price.,decimal,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,0
+fact_sales_order,uom,Uom,"Standard unit: EA=each, KG=kilogram, L=litre.",string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,0
+fact_sales_order_line,line_id,Line Id,Unique identifier for line; resolves to master or transaction parent.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order_line,order_id,Order Id,Unique identifier for order; resolves to master or transaction parent.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order_line,product_id,Product Id,Unique identifier for product; resolves to master or transaction parent.,string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order_line,order_date,Order Date,Calendar day when the fictional order was placed.,date,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order_line,quantity,Quantity,Number of units at this table's documented grain; interpret with uom.,decimal,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,1
+fact_sales_order_line,unit_price,Unit Price,Synthetic INR price per ordered unit; sales value is quantity times unit price.,decimal,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,0
+fact_sales_order_line,uom,Uom,"Standard unit: EA=each, KG=kilogram, L=litre.",string,ERP,Synthetic - Public Demonstration,ERP Business Owner,On batch execution,0
+fact_production,production_id,Production Id,Unique identifier for production; resolves to master or transaction parent.,string,MES,Synthetic - Public Demonstration,MES Business Owner,On batch execution,1
+fact_production,product_id,Product Id,Unique identifier for product; resolves to master or transaction parent.,string,MES,Synthetic - Public Demonstration,MES Business Owner,On batch execution,1
+fact_production,facility_id,Facility Id,Unique identifier for facility; resolves to master or transaction parent.,string,MES,Synthetic - Public Demonstration,MES Business Owner,On batch execution,1
+fact_production,material_id,Material Id,Unique identifier for material; resolves to master or transaction parent.,string,MES,Synthetic - Public Demonstration,MES Business Owner,On batch execution,1
+fact_production,production_date,Production Date,Calendar day of completed synthetic production.,date,MES,Synthetic - Public Demonstration,MES Business Owner,On batch execution,1
+fact_production,quantity,Quantity,Number of units at this table's documented grain; interpret with uom.,decimal,MES,Synthetic - Public Demonstration,MES Business Owner,On batch execution,1
+fact_production,uom,Uom,"Standard unit: EA=each, KG=kilogram, L=litre.",string,MES,Synthetic - Public Demonstration,MES Business Owner,On batch execution,0
+fact_inventory,inventory_id,Inventory Id,Unique identifier for inventory; resolves to master or transaction parent.,string,WMS,Synthetic - Public Demonstration,WMS Business Owner,On batch execution,1
+fact_inventory,product_id,Product Id,Unique identifier for product; resolves to master or transaction parent.,string,WMS,Synthetic - Public Demonstration,WMS Business Owner,On batch execution,1
+fact_inventory,facility_id,Facility Id,Unique identifier for facility; resolves to master or transaction parent.,string,WMS,Synthetic - Public Demonstration,WMS Business Owner,On batch execution,1
+fact_inventory,warehouse_id,Warehouse Id,Unique identifier for warehouse; resolves to master or transaction parent.,string,WMS,Synthetic - Public Demonstration,WMS Business Owner,On batch execution,1
+fact_inventory,stock_date,Stock Date,Inventory observation day; never sum balances across observation dates.,date,WMS,Synthetic - Public Demonstration,WMS Business Owner,On batch execution,1
+fact_inventory,quantity,Quantity,Number of units at this table's documented grain; interpret with uom.,decimal,WMS,Synthetic - Public Demonstration,WMS Business Owner,On batch execution,1
+fact_inventory,uom,Uom,"Standard unit: EA=each, KG=kilogram, L=litre.",string,WMS,Synthetic - Public Demonstration,WMS Business Owner,On batch execution,0
+fact_shipment,shipment_id,Shipment Id,Unique identifier for shipment; resolves to master or transaction parent.,string,LOGISTICS,Synthetic - Public Demonstration,LOGISTICS Business Owner,On batch execution,1
+fact_shipment,order_id,Order Id,Unique identifier for order; resolves to master or transaction parent.,string,LOGISTICS,Synthetic - Public Demonstration,LOGISTICS Business Owner,On batch execution,1
+fact_shipment,facility_id,Facility Id,Unique identifier for facility; resolves to master or transaction parent.,string,LOGISTICS,Synthetic - Public Demonstration,LOGISTICS Business Owner,On batch execution,1
+fact_shipment,carrier,Carrier,Canonical carrier in the fictional PackRight dataset.,string,LOGISTICS,Synthetic - Public Demonstration,LOGISTICS Business Owner,On batch execution,0
+fact_shipment,ship_date,Ship Date,Day goods left the facility.,date,LOGISTICS,Synthetic - Public Demonstration,LOGISTICS Business Owner,On batch execution,1
+fact_shipment,promised_date,Promised Date,Promised delivery deadline.,date,LOGISTICS,Synthetic - Public Demonstration,LOGISTICS Business Owner,On batch execution,1
+fact_shipment,delivery_date,Delivery Date,Actual synthetic delivery day.,date,LOGISTICS,Synthetic - Public Demonstration,LOGISTICS Business Owner,On batch execution,1
+fact_shipment,quantity,Quantity,Number of units at this table's documented grain; interpret with uom.,decimal,LOGISTICS,Synthetic - Public Demonstration,LOGISTICS Business Owner,On batch execution,1

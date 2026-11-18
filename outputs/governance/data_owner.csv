@@ -1,0 +1,12 @@
+table_name,owner,steward,responsibility
+dim_customer,ERP Business Owner,ERP Data Steward,"Maintain definitions, review exceptions, approve source corrections"
+dim_product,ERP Business Owner,ERP Data Steward,"Maintain definitions, review exceptions, approve source corrections"
+dim_facility,MASTER_DATA Business Owner,MASTER_DATA Data Steward,"Maintain definitions, review exceptions, approve source corrections"
+dim_supplier,MASTER_DATA Business Owner,MASTER_DATA Data Steward,"Maintain definitions, review exceptions, approve source corrections"
+dim_material,MASTER_DATA Business Owner,MASTER_DATA Data Steward,"Maintain definitions, review exceptions, approve source corrections"
+dim_warehouse,WMS Business Owner,WMS Data Steward,"Maintain definitions, review exceptions, approve source corrections"
+fact_sales_order,ERP Business Owner,ERP Data Steward,"Maintain definitions, review exceptions, approve source corrections"
+fact_sales_order_line,ERP Business Owner,ERP Data Steward,"Maintain definitions, review exceptions, approve source corrections"
+fact_production,MES Business Owner,MES Data Steward,"Maintain definitions, review exceptions, approve source corrections"
+fact_inventory,WMS Business Owner,WMS Data Steward,"Maintain definitions, review exceptions, approve source corrections"
+fact_shipment,LOGISTICS Business Owner,LOGISTICS Data Steward,"Maintain definitions, review exceptions, approve source corrections"

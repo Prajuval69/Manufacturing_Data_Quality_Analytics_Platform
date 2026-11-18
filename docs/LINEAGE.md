@@ -1,0 +1,92 @@
+# Actual source-to-output lineage
+
+Every input is synthetic PackRight data.
+
+- `ERP.customers.csv` → `stg_dim_customer`: Contract-checked CSV ingestion.
+- `stg_dim_customer` → `clean_dim_customer`: Normalize text/dates/units; repair canonical labels.
+- `clean_dim_customer` → `dim_customer`: Validate, exclude blocking failures; retain flagged anomalies.
+- `dim_customer` → `metadata_catalog`: Aggregate trusted facts or document governed fields.
+- `metadata_catalog` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_dim_customer` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `reference.dim_customer` → `clean_dim_customer`: Canonical labels and identifier membership.
+- `ERP.products.csv` → `stg_dim_product`: Contract-checked CSV ingestion.
+- `stg_dim_product` → `clean_dim_product`: Normalize text/dates/units; repair canonical labels.
+- `clean_dim_product` → `dim_product`: Validate, exclude blocking failures; retain flagged anomalies.
+- `dim_product` → `metadata_catalog`: Aggregate trusted facts or document governed fields.
+- `metadata_catalog` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_dim_product` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `reference.dim_product` → `clean_dim_product`: Canonical labels and identifier membership.
+- `dim_supplier` → `dim_product`: Validate supplier_id against accepted parent identifiers.
+- `MASTER_DATA.facilities.csv` → `stg_dim_facility`: Contract-checked CSV ingestion.
+- `stg_dim_facility` → `clean_dim_facility`: Normalize text/dates/units; repair canonical labels.
+- `clean_dim_facility` → `dim_facility`: Validate, exclude blocking failures; retain flagged anomalies.
+- `dim_facility` → `facility_performance`: Aggregate trusted facts or document governed fields.
+- `facility_performance` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_dim_facility` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `reference.dim_facility` → `clean_dim_facility`: Canonical labels and identifier membership.
+- `MASTER_DATA.suppliers.csv` → `stg_dim_supplier`: Contract-checked CSV ingestion.
+- `stg_dim_supplier` → `clean_dim_supplier`: Normalize text/dates/units; repair canonical labels.
+- `clean_dim_supplier` → `dim_supplier`: Validate, exclude blocking failures; retain flagged anomalies.
+- `dim_supplier` → `metadata_catalog`: Aggregate trusted facts or document governed fields.
+- `metadata_catalog` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_dim_supplier` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `reference.dim_supplier` → `clean_dim_supplier`: Canonical labels and identifier membership.
+- `MASTER_DATA.materials.csv` → `stg_dim_material`: Contract-checked CSV ingestion.
+- `stg_dim_material` → `clean_dim_material`: Normalize text/dates/units; repair canonical labels.
+- `clean_dim_material` → `dim_material`: Validate, exclude blocking failures; retain flagged anomalies.
+- `dim_material` → `metadata_catalog`: Aggregate trusted facts or document governed fields.
+- `metadata_catalog` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_dim_material` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `reference.dim_material` → `clean_dim_material`: Canonical labels and identifier membership.
+- `dim_supplier` → `dim_material`: Validate supplier_id against accepted parent identifiers.
+- `WMS.warehouses.csv` → `stg_dim_warehouse`: Contract-checked CSV ingestion.
+- `stg_dim_warehouse` → `clean_dim_warehouse`: Normalize text/dates/units; repair canonical labels.
+- `clean_dim_warehouse` → `dim_warehouse`: Validate, exclude blocking failures; retain flagged anomalies.
+- `dim_warehouse` → `metadata_catalog`: Aggregate trusted facts or document governed fields.
+- `metadata_catalog` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_dim_warehouse` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `reference.dim_warehouse` → `clean_dim_warehouse`: Canonical labels and identifier membership.
+- `dim_facility` → `dim_warehouse`: Validate facility_id against accepted parent identifiers.
+- `ERP.sales_orders.csv` → `stg_fact_sales_order`: Contract-checked CSV ingestion.
+- `stg_fact_sales_order` → `clean_fact_sales_order`: Normalize text/dates/units; repair canonical labels.
+- `clean_fact_sales_order` → `fact_sales_order`: Validate, exclude blocking failures; retain flagged anomalies.
+- `fact_sales_order` → `kpi_monthly`: Aggregate trusted facts or document governed fields.
+- `kpi_monthly` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_fact_sales_order` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `dim_customer` → `fact_sales_order`: Validate customer_id against accepted parent identifiers.
+- `dim_product` → `fact_sales_order`: Validate product_id against accepted parent identifiers.
+- `dim_facility` → `fact_sales_order`: Validate facility_id against accepted parent identifiers.
+- `ERP.order_lines.csv` → `stg_fact_sales_order_line`: Contract-checked CSV ingestion.
+- `stg_fact_sales_order_line` → `clean_fact_sales_order_line`: Normalize text/dates/units; repair canonical labels.
+- `clean_fact_sales_order_line` → `fact_sales_order_line`: Validate, exclude blocking failures; retain flagged anomalies.
+- `fact_sales_order_line` → `kpi_monthly`: Aggregate trusted facts or document governed fields.
+- `kpi_monthly` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_fact_sales_order_line` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `fact_sales_order` → `fact_sales_order_line`: Validate order_id against accepted parent identifiers.
+- `dim_product` → `fact_sales_order_line`: Validate product_id against accepted parent identifiers.
+- `MES.production.csv` → `stg_fact_production`: Contract-checked CSV ingestion.
+- `stg_fact_production` → `clean_fact_production`: Normalize text/dates/units; repair canonical labels.
+- `clean_fact_production` → `fact_production`: Validate, exclude blocking failures; retain flagged anomalies.
+- `fact_production` → `kpi_monthly`: Aggregate trusted facts or document governed fields.
+- `kpi_monthly` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_fact_production` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `dim_product` → `fact_production`: Validate product_id against accepted parent identifiers.
+- `dim_facility` → `fact_production`: Validate facility_id against accepted parent identifiers.
+- `dim_material` → `fact_production`: Validate material_id against accepted parent identifiers.
+- `WMS.inventory.csv` → `stg_fact_inventory`: Contract-checked CSV ingestion.
+- `stg_fact_inventory` → `clean_fact_inventory`: Normalize text/dates/units; repair canonical labels.
+- `clean_fact_inventory` → `fact_inventory`: Validate, exclude blocking failures; retain flagged anomalies.
+- `fact_inventory` → `kpi_monthly`: Aggregate trusted facts or document governed fields.
+- `kpi_monthly` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_fact_inventory` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `dim_product` → `fact_inventory`: Validate product_id against accepted parent identifiers.
+- `dim_facility` → `fact_inventory`: Validate facility_id against accepted parent identifiers.
+- `dim_warehouse` → `fact_inventory`: Validate warehouse_id against accepted parent identifiers.
+- `LOGISTICS.shipments.csv` → `stg_fact_shipment`: Contract-checked CSV ingestion.
+- `stg_fact_shipment` → `clean_fact_shipment`: Normalize text/dates/units; repair canonical labels.
+- `clean_fact_shipment` → `fact_shipment`: Validate, exclude blocking failures; retain flagged anomalies.
+- `fact_shipment` → `kpi_monthly`: Aggregate trusted facts or document governed fields.
+- `kpi_monthly` → `Power BI CSV`: Export local reporting snapshot.
+- `clean_fact_shipment` → `dq_exception`: Persist one exception per failed rule and source occurrence.
+- `fact_sales_order` → `fact_shipment`: Validate order_id against accepted parent identifiers.
+- `dim_facility` → `fact_shipment`: Validate facility_id against accepted parent identifiers.
