@@ -4,6 +4,13 @@ Working local portfolio platform for **PackRight Manufacturing**, a fictional pa
 
 Python/Pandas batches ingest ERP, MES, WMS, logistics and master data; profile, standardize and validate records; quarantine blocking failures; publish constrained SQLite tables; calculate KPIs; and export governance and Power BI datasets. FastAPI exposes the results and exception workflow. A structured-data assistant works without external credentials.
 
+## Public project
+
+- Repository: https://github.com/Prajuval69/Manufacturing_Data_Quality_Analytics_Platform
+- Results site: https://prajuval69.github.io/Manufacturing_Data_Quality_Analytics_Platform/
+
+GitHub Pages publishes the static synthetic-batch results page from docs/index.html on main. The Python pipeline, FastAPI endpoints and exception updates run locally using the commands below. No paid hosting or external credentials are required.
+
 ## Run on Windows PowerShell
 
 Run from this repository directory. Python 3.11+ is required; the verified environment uses Python 3.12.
